@@ -6,7 +6,7 @@ const Main = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://192.168.56.100:8001/api/products');
+      const response = await fetch('http://192.168.56.100:8000/api/products');
 
       const data = await response.json();
 
@@ -39,7 +39,7 @@ const Main = () => {
               return (
                 <div className="col" key={p.id}>
                   <div className="card shadow-sm">
-                    <img src={p.image} height="180" />
+                    <img src={p.image} alt=""/>
                     <div className="card-body">
                       <p className="card-text">{p.title}</p>
                       <div className="d-flex justify-content-between align-items-center">
