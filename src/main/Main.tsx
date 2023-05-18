@@ -6,7 +6,7 @@ const Main = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://192.168.56.100:8000/api/products');
+      const response = await fetch('http://admin-svc-np.default.svc.cluster.local/api/products');
 
       const data = await response.json();
 
@@ -15,7 +15,7 @@ const Main = () => {
   }, []);
 
   const like = async (id: number) => {
-    await fetch(`http://192.168.56.100:8001/api/products/${id}/like`, {
+    await fetch(`http://main-mysql.default.svc.cluster.local/api/products/${id}/like`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'}
     });

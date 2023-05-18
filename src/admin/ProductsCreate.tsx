@@ -10,7 +10,7 @@ const ProductsCreate = () => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
     
-    await fetch('http://192.168.56.100:8000/api/products', {
+    await fetch('http://admin-svc-np.default.svc.cluster.local/api/products', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
