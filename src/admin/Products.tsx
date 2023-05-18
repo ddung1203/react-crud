@@ -9,7 +9,7 @@ const Products = () => {
   useEffect(() => {
     (
       async () => {
-        const response = await fetch('http://admin-svc-np.default.svc.cluster.local/api/products');
+        const response = await fetch('http://admin-svc-np.default.svc.cluster.local:8000/api/products');
 
         const data = await response.json();
 
@@ -20,7 +20,7 @@ const Products = () => {
 
   const del = async (id: number) => {
     if(window.confirm('삭제하시겠습니까?')) {
-      await fetch(`http://admin-svc-np.default.svc.cluster.local/api/products/${id}`, {
+      await fetch(`http://admin-svc-np.default.svc.cluster.local:8000/api/products/${id}`, {
         method: 'DELETE'
       });
     }
