@@ -26,6 +26,6 @@ spec:
     spec:
       containers:
         - name: react
-          image: ddung1203/react-crud:2
+          image: ddung1203/react-crud:11
           ports:
           - containerPort: 3000
