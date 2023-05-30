@@ -1,7 +1,7 @@
 import React, { PropsWithRef, SyntheticEvent, useEffect, useState } from "react";
 import Wrapper from "./Wrapper";
 import { Redirect } from "react-router-dom";
-import { Product } from "./interface/product";
+import { Product } from "../interface/product";
 
 const ProductsEdit = (props: PropsWithRef<any>) => {
   const [title, setTitle] = useState('');
@@ -11,7 +11,7 @@ const ProductsEdit = (props: PropsWithRef<any>) => {
   useEffect(() => {
     (
       async () => {
-        const response = await fetch(`http://192-168-100-101.nip.io/admin/api/products/${props.match.params.id}`);
+        const response = await fetch(`/api/products/${props.match.params.id}`);
 
         const product: Product = await response.json();
 
@@ -24,7 +24,7 @@ const ProductsEdit = (props: PropsWithRef<any>) => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
     
-    await fetch(`http://192-168-100-101.nip.io/admin/api/products/${props.match.params.id}`, {
+    await fetch(`/api/products/${props.match.params.id}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

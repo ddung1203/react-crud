@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Product } from "../admin/interface/product";
+import { Product } from "../interface/product";
 
 const Main = () => {
   const [products, setProducts] = useState([] as Product[]);
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://192-168-100-101.nip.io/admin/api/products');
+      const response = await fetch('/api/products');
 
       const data = await response.json();
 
@@ -15,7 +15,7 @@ const Main = () => {
   }, []);
 
   const like = async (id: number) => {
-    await fetch(`http://192-168-100-101.nip.io/main/api/products/${id}/like`, {
+    await fetch(`/api/product/${id}/like`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'}
     });

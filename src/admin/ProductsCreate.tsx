@@ -10,7 +10,7 @@ const ProductsCreate = () => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
     
-    await fetch('http://192-168-100-101.nip.io/admin/api/products', {
+    await fetch('/api/products', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

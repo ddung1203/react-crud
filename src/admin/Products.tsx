@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "./Wrapper";
-import { Product } from "./interface/product";
+import { Product } from "../interface/product";
 import { Link } from "react-router-dom";
 
 const Products = () => {
@@ -9,7 +9,7 @@ const Products = () => {
   useEffect(() => {
     (
       async () => {
-        const response = await fetch('http://192-168-100-101.nip.io/admin/api/products');
+        const response = await fetch('/api/products');
 
         const data = await response.json();
 
@@ -20,7 +20,7 @@ const Products = () => {
 
   const del = async (id: number) => {
     if(window.confirm('삭제하시겠습니까?')) {
-      await fetch(`http://192-168-100-101.nip.io/admin/api/products/${id}`, {
+      await fetch(`/api/products/${id}`, {
         method: 'DELETE'
       });
     }
